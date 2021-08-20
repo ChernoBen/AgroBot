@@ -74,7 +74,7 @@ class ClientController {
             number = req.body.number,
             plan = req.body.plan
         };
-
+        let clientId = req.params.id;
         try{
             const token = req.headers["authorization"];
 			if (token != undefined) {
@@ -90,7 +90,7 @@ class ClientController {
 
         // podendo atualizar apenas nome, numero e plano passando id como parametro
         await Client.findByIdAndUpdate(
-            { _id:ObjectId(user._id) },
+            { _id:ObjectId(clientId) },
             {name:name},
             {number:number},
             {plan:plan},
