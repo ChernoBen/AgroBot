@@ -5,5 +5,6 @@ module.exports = {
 	secret:process.env.SECRET,
 	mgHost: process.env.HOST,
 	mgDatabase: process.env.MONGO_INITDB_DATABASE,
-	mgPort: process.env.ME_CONFIG_MONGODB_PORT
+	mgPort: process.env.ME_CONFIG_MONGODB_PORT,
+	DB_URI: process.env.DB_URI
 };
