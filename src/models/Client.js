@@ -21,5 +21,5 @@ const ClientSchema = new mongoose.Schema({
     created_at:{type: Date, default: Date.now}
 
 });
-const Client = mongoose.model("Clients", CLientSchema);
+const Client = mongoose.model("Clients", ClientSchema);
 module.exports = Client;
