@@ -2,12 +2,27 @@
 const mongoose = require("../database/database");
 
 const UserSchema = new mongoose.Schema({
-	name:String,
-	email:String,
-	password:String,
-    occupation:String,
-    admin:Boolean,
-    created_at:Date.now()
+	name:{
+        type:String,
+        required:true
+    },
+	email:{
+        type:String,
+        required:true
+    },
+	password:{
+        type:String,
+        required:true
+    },
+    occupation:{
+        type:String,
+        required:true
+    },
+    admin:{
+        type:Boolean,
+        default:false
+    },
+    created_at:{type: Date, default: Date.now}
 
 });
 const User = mongoose.model("Users", UserSchema);
