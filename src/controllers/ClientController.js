@@ -99,7 +99,7 @@ class ClientController {
                 if (err) {
                     return res.status(500).json({message:"Internal Error!"});
                 }
-                return res.status(201);
+                return res.status(202);
             });
     }
 }
