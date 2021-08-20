@@ -7,16 +7,22 @@ const secret = keys.secret;
 class ClientController {
     async create(req,res){
         //preciso do nome, numero e cpf
-        const { name, cpf, number } = req.body;
-		if (name == "" || cpf == "" || password == "")return res.sendStatus(400);
-		try {
+        const { 
+            name,
+            cpf,
+            phone,
+
+
+         } = req.body;
+		if (name == "" || cpf == "" || phone == "")return res.sendStatus(400);     
+        try {
 			const client = await Client.findOne({ "cpf": cpf });
-			if (cpf != undefined) { return res.status(400).json({ error: "User already registered" }); }
-			const newClient = new User({ name, cpf, number });
+			if (client != undefined) { return res.status(400).json({ error: "User already registered" }); }
+			const newClient = new Client({ name, cpf, phone });
 			await newClient.save();
 			res.status(201).json({ data:name});
 		}catch (error) {
-			res.status(500);
+			return res.status(500);
 		}
     }
 
@@ -70,10 +76,10 @@ class ClientController {
 
     async update(req,res){
         let {
-            name = req.body.name,
-            number = req.body.number,
-            plan = req.body.plan
-        };
+            name,
+            number,
+            plan
+        } = re.body;
         let clientId = req.params.id;
         try{
             const token = req.headers["authorization"];
