@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+require('dotenv/config');
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -21,6 +22,6 @@ const options = {
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile,options));
 app.use(routes);
 
-app.listen(keys.PORT || 8080,'0.0.0.0',function() {
+app.listen(process.env.PORT ||3000,'0.0.0.0',function() {
   console.log("Server started......."+keys.apiPort)
 });
