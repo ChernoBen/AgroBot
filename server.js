@@ -22,5 +22,5 @@ app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile,options));
 app.use(routes);
 
 app.listen(keys.apiPort || 3000,'0.0.0.0',function() {
-  console.log("Server started.......")
+  console.log("Server started......."+keys.apiPort)
 });
