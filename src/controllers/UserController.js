@@ -18,7 +18,13 @@ class UserController {
 		try {
 			const user = await User.findOne({ "email": email });
 			if (user != undefined) { return res.status(400).json({ error: "Email already registered" }); }
-			const newUser = new User({ name, email, password: hash });
+			const newUser = new User({
+				name, 
+				email, 
+				password: hash,
+				occupation,
+				admin,
+			});
 			await newUser.save();
 			res.status(201).json({ email:email });
 		} catch (error) {
