@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const UserController = require("../controllers/UserController");
 const ClientController = require("../controllers/ClientController");
-const CustomerController = require("../controllers/CostumerController");
+const CustomerController = require("../controllers/CustomerController");
 const EventController = require("../controllers/EventController");
 
 router.use((req, res, next)=> {
