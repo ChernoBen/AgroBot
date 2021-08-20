@@ -6,5 +6,6 @@ module.exports = {
 	mgHost: process.env.HOST,
 	mgDatabase: process.env.MONGO_INITDB_DATABASE,
 	mgPort: process.env.ME_CONFIG_MONGODB_PORT,
-	DB_URI: process.env.DB_URI
+	DB_URI: process.env.DB_URI,
+	ATLAS_URI:process.env.ATLAS_DB
 };
