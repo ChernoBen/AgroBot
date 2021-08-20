@@ -22,16 +22,16 @@ class EventController{
             location
         });
         try{
-          await result.save();  
+          await result.save();
+          return res.status(201);  
         }catch(error){
             return res.status(500);
         }
-        return res.status(201);
     }
 
     async list(req,res){
         //listar eventos aparenas para clientes que assinam plano
-        let events = await Client.find({});
+        let events = await Event.find({});
         if(!events) return res.status(200).json({data:[]})
         return res.status(200).json({data:events});
     }
