@@ -36,13 +36,13 @@ class ClientController {
     //obter cliente passando ID
     async getByPhone(req,res){
         let phone = req.params.phone;
+        if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
         try{
-            phone = parseInt(phone);
+            phone = Number.parseInt(phone,10);
         }catch(err){
             return res.status(400).json({error:"phone deve ser um numero inteiro"});
         }
-        if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
-        let result = await Client.findOne({"phone":phone});
+        let result = await Client.find({"phone":phone});
         console.log(result);
         if(!result)return res.status(404).json({error:"Usuario não encontrado"});
         return res.status(200).json({data:result});
