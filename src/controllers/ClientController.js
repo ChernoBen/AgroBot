@@ -38,12 +38,8 @@ class ClientController {
         let phone = req.params.phone;
         console.log(phone)
         if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
-        try{
-            phone = parseInt(phone);
-        }catch(err){
-            return res.status(400).json({error:"phone deve ser um numero inteiro"});
-        }
-        let result = await Client.find({"phone":phone});
+        phone = parseInt(phone);
+        let result = await Client.find({});
         console.log(result);
         if(!result)return res.status(404).json({error:"Usuario não encontrado"});
         return res.status(200).json({data:result});
@@ -100,7 +96,7 @@ class ClientController {
     async update(req,res){
         let {
             name,
-            number,
+            phone,
             plan
         } = re.body;
         let clientId = req.params.id;
@@ -121,7 +117,7 @@ class ClientController {
         await Client.findByIdAndUpdate(
             { _id:ObjectId(clientId) },
             {name:name},
-            {number:number},
+            {phone:phone},
             {plan:plan},
             { new: true },
             async (err, client) => {
