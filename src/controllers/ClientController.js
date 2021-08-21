@@ -32,7 +32,18 @@ class ClientController {
         return res.status(200).json({data:result});
     }
 
-    //obter cliente passando ID
+    //obter cliente passando cpf
+    async getByCpf(req,res){
+        let cpf = req.params.cpf;
+        if (cpf==undefined)return res.status(400).json({error:"cpf irregular"});
+        cpf = parseInt(cpf);
+        let result = await Client.find({"cpf":cpf});
+        if(!result)return res.status(404).json({error:"Usuario não encontrado"});
+        return res.status(200).json({data:result});
+    }
+
+
+    //obter cliente passando numero
     async getByPhone(req,res){
         let phone = req.params.phone;
         if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
