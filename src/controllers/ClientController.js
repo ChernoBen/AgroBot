@@ -26,6 +26,23 @@ class ClientController {
 		}
     }
 
+    //obter todos os clientes
+    async listAll(req,res){
+        let result = await Client.find({});
+        if(!result)return res.status(200).json([]);
+        return res.status(200).json({data:result});
+    }
+
+    //obter cliente passando ID
+    async getByPhone(req,res){
+        let phone = req.params.phone;
+        if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
+        let result = await Client.findOne({ phone: phone }).exec();
+        console.log(result);
+        if(!result)return res.status(404).json({error:"Usuario não encontrado"});
+        return res.status(200).json({data:result});
+    }
+
     async list(req, res) {
         //preciso listar todos os clientes para o admin
 		if (!req.headers["authorization"]) return res.status(401);
