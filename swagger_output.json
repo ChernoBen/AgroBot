@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "https://agrobot-ufmt.herokuapp.com",
+  "host": "agrobot-ufmt.herokuapp.com",
   "basePath": "/",
   "tags": [],
   "schemes": [
