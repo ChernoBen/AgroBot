@@ -62,6 +62,7 @@ class ClientController {
                             cpf:item.cpf,
                             phone:item.phone,
                             plan:item.plan,
+                            place:item.place,
                             created_at:item.created_at
                         }
                         list.push(data);
