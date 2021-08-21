@@ -12,6 +12,7 @@ router.use((req, res, next)=> {
 
 router.post("/register",UserController.create);
 router.post("/auth",UserController.auth);
+router.get("/users",UserConstroler.listUsers);
 
 router.post("/client",ClientController.create);
 router.get("/clients",ClientController.listAll);
