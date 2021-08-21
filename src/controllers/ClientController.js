@@ -12,8 +12,6 @@ class ClientController {
             cpf,
             phone,
             place,
-
-
          } = req.body;
 		if (name == "" || cpf == "" || phone == "")return res.sendStatus(400);     
         try {
