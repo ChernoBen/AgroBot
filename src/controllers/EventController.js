@@ -13,8 +13,7 @@ class EventController{
             description,
             location
         } = req.body;
-
-        if (!clientid || !title || !description)return res.status(400).json({error:"Bad request"});
+        if (!clientId || !title || !description)return res.status(400).json({error:"Bad request"});
         let result =  new Event({
             client:ObjectId(clientId),
             title,
@@ -22,10 +21,10 @@ class EventController{
             location
         });
         try{
-          await result.save();
-          return res.status(201);  
+            await result.save();
+            return res.status(201).json({message:"ok"});  
         }catch(error){
-            return res.status(500);
+            return res.status(500).json({error:"Internal server error"});
         }
     }
 
