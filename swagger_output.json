@@ -9,7 +9,6 @@
   "basePath": "/",
   "tags": [],
   "schemes": [
-    "http",
     "https"
   ],
   "consumes": [],
