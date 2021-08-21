@@ -9,10 +9,11 @@ const User = require("../models/User");
 class UserController {
 
 	async create(req, res) {
-		const { name, email, password, occupation,admin } = req.body;
+		console.log("passsou")
+		const { name, email, password, occupation } = req.body;
 		if (name == "" || email == "" || password == "")return res.sendStatus(400);
 		if(!validator.validate(email))return res.status(400); 
-		if(password.length<8 ) return res.status(400);
+		if(password.length<6 ) return res.status(400);
 		let salt = await bcrypt.genSalt(10);
 		let hash = await bcrypt.hash(password, salt);
 		try {
@@ -22,8 +23,7 @@ class UserController {
 				name, 
 				email, 
 				password: hash,
-				occupation,
-				admin,
+				occupation
 			});
 			await newUser.save();
 			res.status(201).json({ email:email });
@@ -34,8 +34,8 @@ class UserController {
 
 	//listar consultores 
 	async listUsers(req,res){
-		const users = await User.find({},'name -_id')
-		if(!user)return res.status(200).json([]);
+		const users = await User.find({},'name _id')
+		if(!users)return res.status(200).json([]);
 		return res.status(200).json({data:users});
 	}
 
