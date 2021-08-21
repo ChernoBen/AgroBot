@@ -37,7 +37,7 @@ class ClientController {
     async getByPhone(req,res){
         let phone = req.params.phone;
         if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
-        let result = await Client.findOne({ phone: phone }).exec();
+        let result = await Client.findOne({}).where('phone').equals(phone);
         console.log(result);
         if(!result)return res.status(404).json({error:"Usuario não encontrado"});
         return res.status(200).json({data:result});
