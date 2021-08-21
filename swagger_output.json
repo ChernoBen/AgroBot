@@ -9,7 +9,7 @@
   "basePath": "/",
   "tags": [],
   "schemes": [
-    "https"
+    "http"
   ],
   "consumes": [],
   "produces": [],
