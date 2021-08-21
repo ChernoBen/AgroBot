@@ -104,6 +104,9 @@
                 },
                 "phone": {
                   "example": "any"
+                },
+                "place": {
+                  "example": "any"
                 }
               }
             }
