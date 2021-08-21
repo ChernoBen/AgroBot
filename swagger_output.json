@@ -36,9 +36,6 @@
                 },
                 "occupation": {
                   "example": "any"
-                },
-                "admin": {
-                  "example": "any"
                 }
               }
             }
