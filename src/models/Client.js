@@ -18,6 +18,10 @@ const ClientSchema = new mongoose.Schema({
         type:String,
         default:"free"  
     },
+    place:{
+        type:String,
+        required:true
+    },
     created_at:{type: Date, default: Date.now}
 
 });
