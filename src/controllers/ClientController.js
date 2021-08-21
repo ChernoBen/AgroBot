@@ -36,11 +36,9 @@ class ClientController {
     //obter cliente passando ID
     async getByPhone(req,res){
         let phone = req.params.phone;
-        console.log(phone)
         if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
         phone = parseInt(phone);
-        let result = await Client.find({});
-        console.log(result);
+        let result = await Client.find({"phone":phone});
         if(!result)return res.status(404).json({error:"Usuario não encontrado"});
         return res.status(200).json({data:result});
     }
