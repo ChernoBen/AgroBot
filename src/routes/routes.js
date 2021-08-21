@@ -19,6 +19,7 @@ router.get("/clients",ClientController.listAll);
 router.get("/clients/:id",ClientController.list);
 router.put("/clients/:id",ClientController.update);
 router.get("/client/:phone",ClientController.getByPhone);
+router.get("/clientes/:cpf",ClientController.getByCpf);
 
 router.post("/event",EventController.create);
 router.get("/event",EventController.list);
