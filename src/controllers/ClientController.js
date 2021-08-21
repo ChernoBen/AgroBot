@@ -39,7 +39,7 @@ class ClientController {
         console.log(phone)
         if (phone==undefined)return res.status(400).json({error:"telefone irregular"});
         try{
-            phone = Number.parseInt(phone,10);
+            phone = parseInt(phone);
         }catch(err){
             return res.status(400).json({error:"phone deve ser um numero inteiro"});
         }
