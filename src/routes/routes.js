@@ -14,9 +14,9 @@ router.post("/register",UserController.create);
 router.post("/auth",UserController.auth);
 
 router.post("/client",ClientController.create);
-router.get("/client",ClientController.listAll);
-router.get("/client/:id",ClientController.list);
-router.put("/client/:id",ClientController.update);
+router.get("/clients",ClientController.listAll);
+router.get("/clients/:id",ClientController.list);
+router.put("/clients/:id",ClientController.update);
 router.get("/client/:phone",ClientController.getByPhone);
 
 router.post("/event",EventController.create);
