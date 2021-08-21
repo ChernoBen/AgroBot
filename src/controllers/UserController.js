@@ -32,6 +32,13 @@ class UserController {
 		}
 	}
 
+	//listar consultores 
+	async listUsers(req,res){
+		const users = await User.find({},'name -_id')
+		if(!user)return res.status(200).json([]);
+		return res.status(200).json({data:users});
+	}
+
     async auth(req, res) {
 		const { email, password } = req.body;
 		const user = await User.findOne({ "email": email });
