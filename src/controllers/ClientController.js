@@ -11,6 +11,7 @@ class ClientController {
             name,
             cpf,
             phone,
+            place,
 
 
          } = req.body;
@@ -18,7 +19,7 @@ class ClientController {
         try {
 			const client = await Client.findOne({ "cpf": cpf });
 			if (client != undefined) { return res.status(400).json({ error: "User already registered" }); }
-			const newClient = new Client({ name, cpf, phone });
+			const newClient = new Client({ name, cpf, phone,place });
 			await newClient.save();
 			res.status(201).json({ data:name});
 		}catch (error) {
